@@ -53,9 +53,6 @@ jobs:
         with:
           name: otp_git_archive
           
-      - name: Install dependencies
-        run: apt update && apt install -y autoconf libncurses-dev build-essential libssl-dev libwxgtk3.0-dev libglu1-mesa-dev default-jdk g++ xsltproc libxml2-utils
-        
       - name: Build Erlang on s390x
         uses: uraimo/run-on-arch-action@master
         id: runcmd
@@ -64,6 +61,7 @@ jobs:
           distro: ubuntu18.04
           shell: /bin/bash
           run: |
+            apt update && apt install -y autoconf libncurses-dev build-essential libssl-dev libwxgtk3.0-dev libglu1-mesa-dev default-jdk g++ xsltproc libxml2-utils
             tar -xzf ./otp_src.tar.gz
             cd otp
             export ERL_TOP=`pwd`
