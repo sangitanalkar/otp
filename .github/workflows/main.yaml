@@ -55,8 +55,9 @@ jobs:
           distro: ubuntu18.04
           shell: /bin/bash
           run: |
-            ./scripts/build-otp
-            ./otp_build tests
-            ./scripts/run-smoke-tests
+            tar -xzf ./otp_src.tar.gz
+            cd otp
+            export ERL_TOP=`pwd`
+            ./otp_build configure
 
   
