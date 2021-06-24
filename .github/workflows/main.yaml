@@ -47,10 +47,15 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
+      
       - name: Download source archive
         uses: actions/download-artifact@v2
         with:
           name: otp_git_archive
+          
+      - name: Install dependencies
+        run: apt update && apt install -y autoconf libncurses-dev build-essential libssl-dev libwxgtk3.0-dev libglu1-mesa-dev default-jdk g++ xsltproc libxml2-utils
+        
       - name: Build Erlang on s390x
         uses: uraimo/run-on-arch-action@master
         id: runcmd
