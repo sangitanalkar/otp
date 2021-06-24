@@ -145,7 +145,7 @@ jobs:
           arch: s390x
           distro: ubuntu18.04
           run: |
-            apt update && DEBIAN_FRONTEND=noninteractive apt install autoconf libncurses-dev build-essential libssl-dev libwxgtk3.0-dev libglu1-mesa-dev default-jdk g++ xsltproc libxml2-utils
+            apt update && DEBIAN_FRONTEND=noninteractive apt install -y autoconf libncurses-dev build-essential libssl-dev libwxgtk3.0-dev libglu1-mesa-dev default-jdk g++ xsltproc libxml2-utils
             ./scripts/build-otp
             ./otp_build tests
             ./scripts/run-smoke-tests
